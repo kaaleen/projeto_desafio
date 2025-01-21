@@ -1,4 +1,6 @@
-let amigos = ["joao", "caze", "tulio"];
+let amigos = [ ];
+let text = '';
+
 
 function adicionarAmigo(){
   let novoNome = document.querySelector('input').value;
@@ -6,6 +8,16 @@ function adicionarAmigo(){
     alert ('digite um nome valido');
   } else {
         amigos.push(novoNome);
+        for (let i = 0; i < amigos.length; i++) {
+          text += '<li>' + amigos[i];
+          amigos = [];
+        }
+        document.getElementById('listaAmigos').innerHTML = text;
+        limparCampo();
   }
-  console.log(amigos[amigos.length - 1]);
+}
+
+function limparCampo(){
+    novoNome = document.querySelector('input');
+    novoNome.value = '';
 }
